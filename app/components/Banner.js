@@ -23,7 +23,14 @@ function Banner() {
     }
 
     if (result.length === 0) {
-        return <div className='text-center p-4'>Loading...</div>
+        return (
+        <div className='relative h-120 bg-gray-300 rounded-xl animate-pulse'>
+            <div className='absolute inset-0 flex flex-col justify-center items-center gap-4 bg-black/30 rounded-b-xl'>
+                <div className='h-8 bg-gray-400 rounded w-48'></div>
+                <div className='h-4 bg-gray-400 rounded w-96'></div>
+            </div>
+        </div>
+    );
     }
 
     return (
