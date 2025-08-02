@@ -29,23 +29,23 @@ function Navbar() {
 
     return (
         <>
-            <nav className='bg-white p-4'>
-                <ul className='flex justify-around'>
+            <nav className='bg-white p-2 sm:p-4'>
+                <ul className='flex flex-col sm:flex-row justify-between sm:justify-around items-center gap-3 sm:gap-0'>
                     <Link href='/'>
-                        <li className='font-semibold text-2xl flex gap-2'>
+                        <li className='font-semibold text-xl sm:text-2xl flex gap-2 items-center'>
                             <div>MyTravelLog</div>
-                            <Image src='/icon.png' alt='icon' height={100} width={100} className='h-10 w-10' />
+                            <Image src='/icon.png' alt='icon' height={100} width={100} className='h-8 w-8 sm:h-10 sm:w-10' />
                         </li>
                     </Link>
-                    <li className='flex gap-3'>
-                        <input placeholder='search' className='outline-3 outline-black w-200 rounded-md h-8 px-3' value={searchText} onChange={(e) => setSearchText(e.target.value)} onKeyDown={handleSearch} />
-                        {(pathname == '/admin' && session && session.user?.email == 'mahaveer.k2023it@sece.ac.in') && (<Link href='/admin/add'><button className='bg-green-300 p-2 rounded-md px-3 ring-2 ring-green-500 hover:cursor-pointer hover:bg-green-600 text-white font-semibold text-center'>Create +</button></Link>)}
+                    <li className='flex gap-2 sm:gap-3 w-full sm:w-auto'>
+                        <input placeholder='search' className='outline-3 outline-black w-full sm:w-200 rounded-md h-8 px-3' value={searchText} onChange={(e) => setSearchText(e.target.value)} onKeyDown={handleSearch} />
+                        {(pathname == '/admin' && session && session.user?.email == 'mahaveer.k2023it@sece.ac.in') && (<Link href='/admin/add'><button className='bg-green-300 p-1 sm:p-2 rounded-md px-2 sm:px-3 ring-2 ring-green-500 hover:cursor-pointer hover:bg-green-600 text-white font-semibold text-center text-sm sm:text-base'>Create +</button></Link>)}
                     </li>
-                    <li>
-                        {!session && (<button className='bg-green-300 p-2 rounded-md px-3 ring-2 ring-green-500 hover:cursor-pointer hover:bg-green-600 text-white font-semibold' onClick={handleSignIn}>Login</button>)}
-                        {session && (<Image src={session.user?.image} height={1000} width={1000} alt='your image' className='h-10 w-10 p-0.5 rounded-full ring-2 ring-gray-300 dark:ring-green-500 hover:dark:ring-green-700 hover:cursor-pointer' onClick={() => setDropDown(!dropDown)}/>)}
+                    <li className='relative'>
+                        {!session && (<button className='bg-green-300 p-1 sm:p-2 rounded-md px-2 sm:px-3 ring-2 ring-green-500 hover:cursor-pointer hover:bg-green-600 text-white font-semibold text-sm sm:text-base' onClick={handleSignIn}>Login</button>)}
+                        {session && (<Image src={session.user?.image} height={1000} width={1000} alt='your image' className='h-8 w-8 sm:h-10 sm:w-10 p-0.5 rounded-full ring-2 ring-gray-300 dark:ring-green-500 hover:dark:ring-green-700 hover:cursor-pointer' onClick={() => setDropDown(!dropDown)}/>)}
                         {dropDown && (
-                            <div  className="absolute right-5 mt-2 z-10  bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                            <div className="absolute right-0 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
                                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                     <div>{session.user?.name}</div>
                                     <div className="font-medium truncate">{session.user?.email}</div>

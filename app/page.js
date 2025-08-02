@@ -14,7 +14,9 @@ export default function Home() {
         <div>
           <Banner />
           <HomePage />
-          <footer className="bg-black/60 text-white text-center">Developed by Mahaveer @2025 | LinkedIn | This site is made use NextJS</footer>
+          <footer className="bg-black/60 text-white text-center py-2 px-3 text-xs sm:text-sm md:text-base">
+            Developed by Mahaveer @2025 | <a href="https://www.linkedin.com/in/mahaveer-k" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-300">LinkedIn</a> | This site is made using NextJS
+          </footer>
         </div>
       </main>
     </>
